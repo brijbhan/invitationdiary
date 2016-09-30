@@ -1,0 +1,13 @@
+<% flash.each do |msg_type, message| %>
+  <% if msg_type == 'notice' %>
+    <div class="alert alert-success" role="alert"><%= message %></div>
+  <% elsif msg_type == 'alert' || msg_type == 'error' %>
+    <div class="alert alert-danger" role="alert"><%= message %></div>
+  <% else %>
+    <div class="alert alert-<%= msg_type %>" role="alert"><%= message %></div>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+  $('.alert').delay(8000).slideUp(1000)
+</script>
