@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-12 text-right">
+    <button type="button" id="new-invitee" class="btn btn-primary">New Invitee</button>
+  </div>
+</div>
+
+<br>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Mobile</th>
+      <th>Invited</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'invitee', collection: @invitees %>
+  </tbody>
+</table>

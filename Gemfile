@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+gem 'draper', github: 'audionerd/draper', branch: 'rails5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
