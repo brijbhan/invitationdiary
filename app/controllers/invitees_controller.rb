@@ -3,6 +3,7 @@ class InviteesController < ApplicationController
 
   def index
     @invitees = current_user.invitees.order(:name)
+    @invitees = @invitees.search(params[:search]) if params[:search].present?
   end
 
   def new
