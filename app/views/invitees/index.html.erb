@@ -9,18 +9,27 @@
 </div>
 
 <br>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Mobile</th>
+          <th>Invited</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: 'invitee', collection: @invitees %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Mobile</th>
-      <th>Invited</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: 'invitee', collection: @invitees %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-12">
+    <%= will_paginate @invitees %>
+  </div>
+</div>
