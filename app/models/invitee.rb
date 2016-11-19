@@ -2,7 +2,6 @@ class Invitee < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
-  validates :street, presence: true
 
   scope :search, -> (search) {
     where("mobile = ? OR name ILIKE ? OR street ILIKE ? OR city ILIKE ? OR state ILIKE ?", search, "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
