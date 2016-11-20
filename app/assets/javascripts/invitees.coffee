@@ -15,3 +15,7 @@ $(document).on 'click', '.edit-invitee', ->
   
 $(document).on 'hidden.bs.modal', '#form-modal', ->
   $(this).remove()
+
+$(document).on 'change', '#invitee_is_invited', ->
+  count = if $(this).prop('checked') then 1 else 0
+  $('#invitee_call_count').val(count)
