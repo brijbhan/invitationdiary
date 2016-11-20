@@ -8,5 +8,4 @@ class Invitee < ApplicationRecord
   }
   scope :is_invited, -> (is_invited) { where(is_invited: is_invited) }
   scope :call_count, -> (call_count) { where(call_count: call_count) }
-
 end

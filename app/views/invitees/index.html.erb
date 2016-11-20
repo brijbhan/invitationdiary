@@ -3,12 +3,16 @@
 <% end %>
 
 <div class="row">
-  <div class="col-md-12 text-right">
-    <button type="button" id="new-invitee" class="btn btn-primary">New Invitee</button>
+  <div class="col-md-12">
+    <div class="navbar-left filters">
+      <div class="form-group">
+        <%= select_tag :call_count, options_for_select(invited_options, params[:call_count]), class: 'form-control' %>
+      </div>
+    </div>
+    <button type="button" id="new-invitee" class="btn btn-primary pull-right">New Invitee</button>
   </div>
 </div>
 
-<br>
 <div class="row">
   <div class="col-md-12">
     <table class="table table-bordered">

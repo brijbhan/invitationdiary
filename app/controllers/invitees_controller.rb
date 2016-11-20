@@ -6,6 +6,7 @@ class InviteesController < ApplicationController
   def index
     @invitees = current_user.invitees
     @invitees = @invitees.search(params[:search]) if params[:search].present?
+    @invitees = @invitees.call_count(params[:call_count]) if params[:call_count].present?
     @invitees = @invitees.order(:name).paginate(page: params[:page])
   end
 
