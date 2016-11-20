@@ -1,13 +1,11 @@
 class InviteesController < ApplicationController
   before_action :authenticate_user!
 
-  WillPaginate.per_page = 10
-
   def index
     @invitees = current_user.invitees
     @invitees = @invitees.search(params[:search]) if params[:search].present?
     @invitees = @invitees.call_count(params[:call_count]) if params[:call_count].present?
-    @invitees = @invitees.order(:name).paginate(page: params[:page])
+    @invitees = @invitees.order(:name).paginate(page: params[:page], per_page: 20)
   end
 
   def new

@@ -1,5 +1,5 @@
 <tr>
-  <td><%= invitee.name.try(:humanize) %></td>
+  <td><%= invitee.name.try(:titleize) %></td>
   <td><%= invitee.decorate.full_address %></td>
   <td><%= invitee.mobile %></td>
   <td><%= invitee.decorate.is_invited %></td>
