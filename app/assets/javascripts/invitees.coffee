@@ -1,5 +1,13 @@
+setFilterParams = ->
+  search = $('.navbar-form input[name=\'search\']').val()
+  callCount = $('.navbar-form input[name=\'call_count\']').val()
+  if search || callCount
+    '?search=' + search + '&call_count=' + callCount
+  else
+    ''
+
 $(document).on 'click', '#new-invitee', ->
-  $.ajax 'invitees/new',
+  $.ajax 'invitees/new' + setFilterParams(),
     type: 'Get'
     success: (response) ->
       $('body').append(response)
@@ -7,7 +15,7 @@ $(document).on 'click', '#new-invitee', ->
 
 $(document).on 'click', '.edit-invitee', ->
   inviteeID = this.dataset['id']
-  $.ajax 'invitees/' + inviteeID + '/edit',
+  $.ajax 'invitees/' + inviteeID + '/edit' + setFilterParams(),
     type: 'Get'
     success: (response) ->
       $('body').append(response)

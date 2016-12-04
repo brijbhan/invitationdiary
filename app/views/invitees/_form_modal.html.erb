@@ -8,6 +8,8 @@
       <div class="modal-body">
         <div class="flash"></div>
         <%= form_for invitee, remote: true do |f| %>
+          <%= hidden_field_tag :search, params[:search] %>
+          <%= hidden_field_tag :call_count, params[:call_count] %>
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, class: 'form-control' %>
