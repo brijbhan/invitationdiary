@@ -5,7 +5,8 @@ class InviteesController < ApplicationController
     @invitees = current_user.invitees
     @invitees = @invitees.search(params[:search]) if params[:search].present?
     @invitees = @invitees.call_count(params[:call_count]) if params[:call_count].present?
-    @invitees = @invitees.order(:name).paginate(page: params[:page], per_page: 20)
+    page = params[:page].present? ? params[:page] : 1
+    @invitees = @invitees.order(:name).paginate(page: page, per_page: 30)
   end
 
   def new
@@ -17,7 +18,7 @@ class InviteesController < ApplicationController
     @invitee = current_user.invitees.build(permitted_params)
     if @invitee.save
       flash[:success] = "You have added your invitee successfully."
-      redirect_to invitees_path(search: params[:search], call_count: params[:call_count])
+      redirect_to invitees_path(search: params[:search], call_count: params[:call_count], page: params[:page])
     else
       flash[:error] = error_messages(@invitee)
     end
@@ -32,7 +33,7 @@ class InviteesController < ApplicationController
     @invitee = current_user.invitees.find(params[:id])
     if @invitee.update(permitted_params)
       flash[:success] = "You have updated your invitee successfully."
-      redirect_to invitees_path(search: params[:search], call_count: params[:call_count])
+      redirect_to invitees_path(search: params[:search], call_count: params[:call_count], page: params[:page])
     else
       flash[:error] = error_messages(@invitee)
     end

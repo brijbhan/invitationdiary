@@ -2,9 +2,12 @@ setFilterParams = ->
   search = $('.navbar-form input[name=\'search\']').val()
   callCount = $('.navbar-form input[name=\'call_count\']').val()
   if search || callCount
-    '?search=' + search + '&call_count=' + callCount
+    params = '?search=' + search + '&call_count=' + callCount
+    params += '&page=' + getURLParameter('page') if getURLParameter('page')
   else
-    ''
+    params = ''
+    params += '?page=' + getURLParameter('page') if getURLParameter('page')
+  params
 
 $(document).on 'click', '#new-invitee', ->
   $.ajax 'invitees/new' + setFilterParams(),
