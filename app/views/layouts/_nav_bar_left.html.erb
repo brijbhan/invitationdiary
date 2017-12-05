@@ -1,7 +1,7 @@
 <ul class="nav navbar-nav">
-  <% if signed_in? %>
-    <li class="active"><%= link_to 'Invitees', invitees_path %></li>
-  <% end %>
+  <% if signed_in? && active_party? %>
+    <li class="active"><%= link_to 'Invitees', party_invitees_path(current_party) %></li>
+  <% end %>`
   <!-- <li><a href="#">Link</a></li> -->
   
   <!-- <li class="dropdown">

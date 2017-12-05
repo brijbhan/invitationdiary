@@ -1,0 +1,21 @@
+<%= form_for @party do |f| %>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :start_at %>
+      <%= f.text_field :start_at, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_at %>
+      <%= f.text_field :end_at, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :venue %>
+      <%= f.text_field :venue, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :is_active %>
+      <%= f.label :is_active, 'Activate' %>
+    </div>
+    <%= f.submit 'Save', class: 'btn btn-primary' %>
+  </div>
+<% end %>
