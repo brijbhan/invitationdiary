@@ -15,6 +15,7 @@ class PartiesController < ApplicationController
     @party = current_user.parties.build(permitted_params)
     if @party.save
       flash[:success] = "You have created your party successfully."
+      redirect_to @party
     else
       render :new
       flash[:error] = error_messages(@party)
@@ -24,6 +25,7 @@ class PartiesController < ApplicationController
   def update
     if @party.update(permitted_params)
       flash[:success] = "You have updated your party successfully."
+      redirect_to @party
     else
       render :edit
       flash[:error] = error_messages(@party)

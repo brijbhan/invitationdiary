@@ -1,21 +1,35 @@
 <%= form_for @party do |f| %>
-  <div class="col-md-6">
-    <div class="form-group">
-      <%= f.label :start_at %>
-      <%= f.text_field :start_at, class: 'form-control' %>
+  <div class="row map-form">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :start_at %>
+        <%= f.text_field :start_at, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :end_at %>
+        <%= f.text_field :end_at, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :venue %>
+        <%= f.text_field :venue, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.check_box :is_active %>
+        <%= f.label :is_active, 'Activate' %>
+      </div>
+      <%= f.hidden_field :lat, value: @party.new_record? ? get_latitude_by_ip : @party.lat %>
+      <%= f.hidden_field :lng, value: @party.new_record? ? get_longitude_by_ip : @party.lng %>
+      <%= f.submit 'Save', class: 'btn btn-primary' %>
     </div>
-    <div class="form-group">
-      <%= f.label :end_at %>
-      <%= f.text_field :end_at, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :venue %>
-      <%= f.text_field :venue, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.check_box :is_active %>
-      <%= f.label :is_active, 'Activate' %>
-    </div>
-    <%= f.submit 'Save', class: 'btn btn-primary' %>
+    <div class="col-md-6" id="map"></div>
   </div>
 <% end %>
+
+
+<script>
+  $(document).ready(function() {
+    lat = parseFloat($('#party_lat').val());
+    lng = parseFloat($('#party_lng').val());
+    initMap(lat, lng);
+  });
+</script>
