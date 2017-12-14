@@ -1,2 +1,23 @@
-<h1>Parties#index</h1>
-<p>Find me in app/views/parties/index.html.erb</p>
+<ul class="nav nav-pills">
+  <li role="presentation" class="active">
+  <%= link_to 'Create new party', new_party_path %>
+  </li>
+</ul>
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">Parties</div>
+    
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Start at</th>
+        <th>End at</th>
+        <th>Venue</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'party', collection: @parties %>
+    </tbody>
+  </table>
+</div>
