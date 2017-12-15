@@ -1,35 +1,31 @@
-<%= content_for :header_nav_form do %>
-  <%= render 'shared/nav_form' %>
-<% end %>
 
-<div class="row">
+<div class="row form-group">
   <div class="col-md-12">
     <div class="navbar-left filters">
-      <div class="form-group">
-        <%= select_tag :call_count, options_for_select(invited_options, params[:call_count]), class: 'form-control' %>
-      </div>
+      <%= select_tag :call_count, options_for_select(invited_options, params[:call_count]), class: 'form-control' %>
     </div>
     <button type="button" id="new-invitee" class="btn btn-primary pull-right">New Invitee</button>
+    <%= render 'shared/nav_form' %>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th>Mobile</th>
-          <th>Invited</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= render partial: 'invitee', collection: @invitees %>
-      </tbody>
-    </table>
-  </div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Invitees</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Invited</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'invitee', collection: @invitees %>
+    </tbody>
+  </table>
 </div>
 
 <div class="row">

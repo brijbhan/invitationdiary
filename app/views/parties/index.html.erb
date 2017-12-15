@@ -1,13 +1,12 @@
-<ul class="nav nav-pills">
-  <li role="presentation" class="active">
-  <%= link_to 'Create new party', new_party_path %>
-  </li>
-</ul>
-<br>
+<div class="row form-group">
+  <div class="col-md-12">
+    <%= link_to 'Create new party', new_party_path, class: 'btn btn-primary pull-right' %>
+    <%= render 'shared/nav_form' %>
+  </div>
+</div>
 
 <div class="panel panel-default">
   <div class="panel-heading">Parties</div>
-    
   <table class="table">
     <thead>
       <tr>

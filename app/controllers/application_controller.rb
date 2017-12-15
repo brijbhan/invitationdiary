@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def active_party?
-    @current_party.present?
+    current_party.present?
   end
   helper_method :current_party, :active_party?
 

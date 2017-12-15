@@ -2,7 +2,7 @@ class InviteesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @invitees = current_user.invitees
+    @invitees = current_party.invitees
     @invitees = @invitees.search(params[:search]) if params[:search].present?
     @invitees = @invitees.call_count(params[:call_count]) if params[:call_count].present?
     page = params[:page].present? ? params[:page] : 1
