@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   
   root to: 'home#index'
 
-  resources :parties do
-    resources :invitees
-  end
+  resources :parties
+  resources :invitees
 end

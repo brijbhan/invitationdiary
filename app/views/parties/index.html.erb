@@ -1,6 +1,6 @@
 <div class="row form-group">
   <div class="col-md-12">
-    <%= link_to 'Create new party', new_party_path, class: 'btn btn-primary pull-right' %>
+    <%= link_to 'Create new party', new_party_path, method: :get, class: 'btn btn-primary pull-right' %>
     <%= render 'shared/nav_form' %>
   </div>
 </div>
@@ -10,6 +10,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>Title</th>
         <th>Start at</th>
         <th>End at</th>
         <th>Venue</th>

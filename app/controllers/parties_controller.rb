@@ -4,7 +4,7 @@ class PartiesController < ApplicationController
 
   def index
     page = params[:page].present? ? params[:page] : 1
-    @parties = current_user.parties.paginate(page: page, per_page: 30)
+    @parties = current_user.parties.order(:start_at, :end_at).paginate(page: page, per_page: 30)
   end
 
   def new
@@ -48,6 +48,6 @@ class PartiesController < ApplicationController
   end
 
   def permitted_params
-    params.require(:party).permit(:start_at, :end_at, :venue, :is_active)
+    params.require(:party).permit(:title, :start_at, :end_at, :venue, :is_active)
   end
 end

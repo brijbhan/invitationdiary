@@ -11,3 +11,8 @@
 .navbar-left.filters {
   margin-right: 10px;
 }
+.active-glyph {
+  font-size: 16px;
+  color: green;
+}
+

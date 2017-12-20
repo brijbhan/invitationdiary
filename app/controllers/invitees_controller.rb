@@ -10,12 +10,12 @@ class InviteesController < ApplicationController
   end
 
   def new
-    @invitee = current_user.invitees.build
+    @invitee = current_party.invitees.build
     render layout: false
   end
 
   def create
-    @invitee = current_user.invitees.build(permitted_params)
+    @invitee = current_party.invitees.build(permitted_params)
     if @invitee.save
       flash[:success] = "You have added your invitee successfully."
       redirect_to invitees_path(search: params[:search], call_count: params[:call_count], page: params[:page])
@@ -25,12 +25,12 @@ class InviteesController < ApplicationController
   end
 
   def edit
-    @invitee = current_user.invitees.find(params[:id])
+    @invitee = current_party.invitees.find(params[:id])
     render layout: false
   end
 
   def update
-    @invitee = current_user.invitees.find(params[:id])
+    @invitee = current_party.invitees.find(params[:id])
     if @invitee.update(permitted_params)
       flash[:success] = "You have updated your invitee successfully."
       redirect_to invitees_path(search: params[:search], call_count: params[:call_count], page: params[:page])
@@ -40,7 +40,7 @@ class InviteesController < ApplicationController
   end
 
   def destroy
-    @invitee = current_user.invitees.find(params[:id])
+    @invitee = current_party.invitees.find(params[:id])
     if @invitee.destroy
       flash[:success] = "You have deleted your invitee successfully."
     else

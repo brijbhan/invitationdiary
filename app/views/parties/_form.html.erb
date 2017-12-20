@@ -1,9 +1,13 @@
 <div class="row map-form">
   <div class="col-md-6">
     <div class="panel panel-default">
-      <div class="panel-heading">Party</div>
+      <div class="panel-heading"><%= form_title(@party) %></div>
       <div class="panel-body">
         <%= form_for @party do |f| %>
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
           <div class="form-group">
             <%= f.label :start_at %>
             <%= f.text_field :start_at, class: 'form-control' %>

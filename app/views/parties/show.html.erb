@@ -1,7 +1,10 @@
 <div class="row map-form">
   <div class="col-md-6">
     <div class="panel panel-default">
-      <div class="panel-heading">Party</div>
+      <div class="panel-heading">
+        <%= @party.title.try(:titleize) %>
+        <i class="<%= active_icon_class(@party) %>"></i>
+      </div>
       <div class="panel-body">
         <div class="form-group">
           Started at
