@@ -4,8 +4,8 @@
   <td><%= party.end_at %></td>
   <td><%= party.venue %></td>
   <td>
-    <%= link_to content_tag(:i, nil, class: 'glyphicon glyphicon-info-sign'), party_path(party) %>&nbsp;
-    <%= link_to content_tag(:i, nil, class: 'glyphicon glyphicon-edit'), edit_party_path(party) %>&nbsp;
-    <%= link_to content_tag(:i, nil, class: 'glyphicon glyphicon-trash'), party_path(party), method: :delete, data: { confirm: "Are you sure want to delete?" } %>&nbsp;
+    <%= link_to content_tag(:i, nil, class: 'fa fa-eye'), party_path(party) %>&nbsp;
+    <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o'), edit_party_path(party) %>&nbsp;
+    <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), party_path(party), method: :delete, data: { confirm: "Are you sure want to delete?" } %>&nbsp;
   </td>
 </tr>

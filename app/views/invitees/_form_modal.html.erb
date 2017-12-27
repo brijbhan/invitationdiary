@@ -34,7 +34,7 @@
           <div class="form-group">
             <label>
               <% if !invitee.new_record? && invitee.is_invited? %>
-                <i class="glyphicon glyphicon-ok"></i>
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
               <% else %>
                 <%= f.check_box :is_invited %>
               <% end %>

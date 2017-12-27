@@ -4,7 +4,7 @@
   <td><%= invitee.mobile %></td>
   <td><%= invitee.decorate.is_invited %></td>
   <td>
-    <%= link_to content_tag(:i, nil, class: 'glyphicon glyphicon-edit'), 'javascript:void(0);', remote: true, class: 'edit-invitee', data: { id: invitee.id } %>&nbsp;
-    <%= link_to content_tag(:i, nil, class: 'glyphicon glyphicon-trash'), invitee_path(invitee), method: :delete, data: { confirm: "Are your sure?" } %>
+    <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o'), 'javascript:void(0);', remote: true, class: 'edit-invitee', data: { id: invitee.id } %>&nbsp;
+    <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o'), invitee_path(invitee), method: :delete, data: { confirm: "Are your sure?" } %>
   </td>
 </tr>

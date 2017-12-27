@@ -9,7 +9,7 @@ module PartiesHelper
 
   def active_icon_class(party)
     if party.is_active?
-      'glyphicon glyphicon-ok-circle active-glyph'
+      'fa fa-check-circle-o active-icon'
     else
       ''
     end
