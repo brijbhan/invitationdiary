@@ -3,6 +3,9 @@ class Party < ApplicationRecord
   has_many   :invitees, dependent: :destroy
   belongs_to :user
 
+  scope :search, -> (search) {
+    where("title ILIKE ?", "%#{search}%")
+  }
   scope :active, -> { where(is_active: true) }
   scope :all_except, ->(party) { where.not(id: party) }
 

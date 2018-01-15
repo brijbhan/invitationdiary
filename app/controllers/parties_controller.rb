@@ -3,8 +3,10 @@ class PartiesController < ApplicationController
   before_action :load_party, only: [:edit, :update, :show, :destroy]
 
   def index
+    @parties = current_user.parties
+    @parties = @parties.search(params[:search]) if params[:search].present?
     page = params[:page].present? ? params[:page] : 1
-    @parties = current_user.parties.order(:start_at, :end_at).paginate(page: page, per_page: 30)
+    @parties = @parties.order(:start_at, :end_at).paginate(page: page, per_page: 30)
   end
 
   def new
